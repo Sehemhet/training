@@ -44,7 +44,7 @@ num = '812345678'
 res = re.findall(r'8\d{8}', num)
 print(res)
 res = re.findall(r'looo?l', l)                                      # r'looo?l'
-print(res)
+print(f' sring 47{res}')
 
 text = "author=Пушкин A.C.; title = Евгений Онегин; price =200; year= 2001"
 match = re.findall(r"\w+\s*=\s*[^;]+", text)
@@ -68,19 +68,56 @@ print(f'string :63 {mat}')
 #  [^>] все до > [^;] все до ;
 #   *?> ? - минорный квантификатор, то есть все значения до первого >
 #   [^>]*> все до >
+text = "lat = 5, lon=7"
+mat = re.findall(r"\w+\s*=\s*\d+", text)
+print(mat)
+mat = re.findall(r'lat\s*=\s*\d+|lon\s*=\s*\d+', text)
+print(f'string 75 {mat}')
+
+mat = re.findall(r'(lat|lon)\s*=\s*\d+', text)
+print(f'string 78 {mat}')
+mat = re.findall(r'(lat|lon)\s*=\s*(\d+)', text)
+print(f'string 80 {mat}')
+
+text = "‹р>Картинка <img src='bg.jpg'> в тексте</p>"
+match = re.findall(r"<img\s+[^>]*src=([\"'])(.+?)\1", text)
+print(match)
+
+text = "ход, доход, ходдог, ходор]"
+match = re. findall(r"прибыль |обретение |доход", text)
+print(match)
+text = "ход, доход, ходдог, ходор]"
+match = re. findall(r"фыв |ячс |\bдоход\b", text)
+print(match)
+text = "ход, доход, ходдог, ходор]"
+match = re. findall(r"(фыв |ячс |\bдоход\b)", text)
+print(match)
+text = "ход, доход, ходдог, ходор]"
+match = re. findall(r"\b(фыв|ячс|доход)\b", text)
+print(match)
+
+text = "Lol, lol, LOL"
+match = re.findall(r"(?im)lol", text)
+print(f'string 101 whitout "i" will {match}')
+
+text = "Lol, lol, LOL"
+match = re.findall(r"(?m)lol", text)
+print(f'string 105 with "i" will {match}')
 
 
+text = " +7 (123)456-78-90"
+m = re.match (r"\+7\(\d{3}\)\d{3}-\d{2}-\d{2}", text)
+print(m)
 
+text = "+38(063)474-36-94"
+m = re.match (r"[+]?38\(\d{3}\)\d{3}-\d{2}-\d{2}", text)
+print(m)
 
+text = "38(063)474-36-94"
+m = re.match (r"[+]?38\(\d{3}\)\d{3}-\d{2}-\d{2}", text)
+print(m)
 
-
-
-
-
-
-
-
-
-
-
+text = "-38(063)474-36-94"
+m = re.findall(r"[+]?38\(\d{3}\)\d{3}-\d{2}-\d{2}", text)
+print(m)
 
