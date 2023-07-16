@@ -121,3 +121,19 @@ text = "-38(063)474-36-94"
 m = re.findall(r"[+]?38\(\d{3}\)\d{3}-\d{2}-\d{2}", text)
 print(m)
 
+q1 = '+38(063)123-45-67 +38(097)123-45-67 +38(093)123-23-23 38(063)111-22-33 +38(050)123-23-23'
+life = re.findall(r'[+]?38\([0][6|9][3]\)\d{3}-\d{2}-\d{2}', q1)
+mtc = re.findall(r'[+]?38\([0][5|6][0|6]\)\d{3}-\d{2}-\d{2}', q1)
+
+print(f"{life}{mtc}", sep='\n')
+
+
+text = 'JNKNJNF лойутййт 349124 jnfe'
+
+result1 = re.findall(r'[A-Z,a-z]\w+', text)
+result2 = re.findall(r'[0-9]\d+', text)
+result3 = re.findall(r'[A-Z]\w+', text)
+
+print(result1)
+print(result2)
+print(result3)
